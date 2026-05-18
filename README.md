@@ -1,0 +1,1 @@
+# 7GHz-p2p-zones
