@@ -124,14 +124,40 @@ end
 cell_sim_data(1:2,:)'
 
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% rev=305; %%%%%Dodgers Park Example 
+% tf_test=0%1
+% margin=0;%%dB margin for aggregate interference
+% move_list_margin=0%1;
+% in_ratio=-10%dB  %%%%ITU is -10 at 80%
+% mc_percentile=80
+% mc_size=1000;%%%% 
+% tf_full_turnoff=0%1% %%%%%Need to do this in a later rev maybe to make it similar to Visualyze
+% freq_separation=0; %%%%%%%Assuming co-channel
+% bs_eirp=50.5;%%%% %%%%%EIRP [dBm/10MHz] for Rural, Suburan, Urban: 62dBm/1MHz --> 36.25dBm/MHz at 50th (0,0), then - 1.25 for 80% TDD, 35dBm/Mhz --> 45dBm/10MHz
+% mitigation_dB=0;%:10:30;  %%%%%%%%% in dB%%%%% Beam Muting or PRB Blanking (or any other mitigation mechanism):  30 dB reduction %%%%%%%%%%%%Consider have this be an array, 3dB step size, to get a more granular insight into how each 3dB mitigation reduces the coordination zone.
+% tf_full_binary_search=1;  %%%%%Search all DPA Points, not just the max distance point
+% min_binaray_spacing=1;%4%8; %%%%%%%minimum search distance (km)
+% reliability=[0.001,0.01,0.1,0.2,0.3,0.5,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,91,92,93,94,95,96,97,98,99,99.5,99.7,99.8,99.9,99.99,99.999]'; %%%A custom ITM range to interpolate from
+% confidence=50;
+% move_list_reliability=reliability;
+% agg_check_reliability=reliability;
+% FreqMHz=7250;
+% sim_radius_km=256%128%64%256%512; %%%%%%%%Placeholder distance         binary_dist_array=[2,4,8,16,32,64,128,256,512,1024,2048];
+% tf_clutter=3%0;%1%;  %%%%%%%????, Just do this in the EIRP reductions, 1 == 2108 into pathloss, 3 is Distribution and Just Urban and Suburban
+% sim_folder1='C:\Local Matlab Data\7GHz P2P Neighborhood Test Sims'  %%%%%%%%%% 
+% tf_opt=1; %%%%This is for the optimized move list, (not WinnForum)
+% tf_3sector=0;  %%%%%Else 1 Sector
+% tf_conus=1; %%%%%%Keep locations just within CONUS
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-rev=305; %%%%%Dodgers Park Example 
+rev=306; %%%%%Dodgers Park Example 
 tf_test=0%1
 margin=0;%%dB margin for aggregate interference
 move_list_margin=0%1;
 in_ratio=-10%dB  %%%%ITU is -10 at 80%
 mc_percentile=80
-mc_size=1000;%%%% 
+mc_size=10;%%%% 
 tf_full_turnoff=0%1% %%%%%Need to do this in a later rev maybe to make it similar to Visualyze
 freq_separation=0; %%%%%%%Assuming co-channel
 bs_eirp=50.5;%%%% %%%%%EIRP [dBm/10MHz] for Rural, Suburan, Urban: 62dBm/1MHz --> 36.25dBm/MHz at 50th (0,0), then - 1.25 for 80% TDD, 35dBm/Mhz --> 45dBm/10MHz
@@ -143,7 +169,7 @@ confidence=50;
 move_list_reliability=reliability;
 agg_check_reliability=reliability;
 FreqMHz=7250;
-sim_radius_km=256%128%64%256%512; %%%%%%%%Placeholder distance         binary_dist_array=[2,4,8,16,32,64,128,256,512,1024,2048];
+sim_radius_km=64%128%64%256%512; %%%%%%%%Placeholder distance         binary_dist_array=[2,4,8,16,32,64,128,256,512,1024,2048];
 tf_clutter=3%0;%1%;  %%%%%%%????, Just do this in the EIRP reductions, 1 == 2108 into pathloss, 3 is Distribution and Just Urban and Suburban
 sim_folder1='C:\Local Matlab Data\7GHz P2P Neighborhood Test Sims'  %%%%%%%%%% 
 tf_opt=1; %%%%This is for the optimized move list, (not WinnForum)
@@ -511,8 +537,8 @@ tf_print_excel=0%1%0%1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-neighborhood_wrapper_rev17_clutter_dual_man_azi_ua2023(app,rev_folder,parallel_flag,tf_server_status,workers,tf_recalculate,tf_rescrap_rev_data,tf_print_excel)
-
+%neighborhood_wrapper_rev17_clutter_dual_man_azi_ua2023(app,rev_folder,parallel_flag,tf_server_status,workers,tf_recalculate,tf_rescrap_rev_data,tf_print_excel)
+neighborhood_wrapper_rev22(app,rev_folder,parallel_flag,tf_server_status,workers,tf_recalculate,tf_rescrap_rev_data,tf_print_excel)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
